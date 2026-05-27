@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PropMatch AI — AI Property Shortlist Builder</title>
+  <meta name="description" content="PropMatch AI helps real estate agents match buyer requirements with their own inventory and generate beautiful shareable shortlist links." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            glow: '0 0 80px rgba(59,130,246,0.25)',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-950 text-white font-sans antialiased">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
+    <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-2xl bg-white text-slate-950 flex items-center justify-center font-black shadow-lg">
+          P
+        </div>
+        <span class="text-lg font-bold tracking-tight">PropMatch AI</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+        <a href="#features" class="hover:text-white transition">Features</a>
+        <a href="#how" class="hover:text-white transition">How it works</a>
+        <a href="#pricing" class="hover:text-white transition">Pricing</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="/login" class="hidden sm:inline-flex rounded-full px-4 py-2 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition">Log in</a>
+        <a href="/signup" class="inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-bold text-slate-950 hover:bg-slate-200 transition">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative overflow-hidden">
+      <div class="absolute left-1/2 top-0 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-blue-500/20 blur-3xl"></div>
+      <div class="absolute right-0 top-44 h-[420px] w-[420px] rounded-full bg-cyan-400/10 blur-3xl"></div>
+      <div class="absolute left-0 bottom-0 h-[360px] w-[360px] rounded-full bg-purple-500/10 blur-3xl"></div>
+
+      <div class="relative mx-auto max-w-7xl px-6 py-24 lg:py-32 grid lg:grid-cols-2 gap-14 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 mb-6">
+            <span class="text-blue-300">✦</span>
+            AI shortlist builder for real estate agents
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]">
+            Paste a buyer query. Get the right properties. Send one link.
+          </h1>
+
+          <p class="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            PropMatch AI helps agents, brokers, and agencies match buyers with listings from their own inventory and generate beautiful shortlist links for WhatsApp, email, and direct client sharing.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="/signup" class="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-sm font-bold text-slate-950 hover:bg-slate-200 transition">
+              Start free
+              <span class="ml-2">→</span>
+            </a>
+            <a href="#demo" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-4 text-sm font-bold text-white hover:bg-white/10 transition">
+              View demo
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
+            <div class="flex items-center gap-2"><span class="text-emerald-400">✓</span> No credit card needed</div>
+            <div class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Global currencies</div>
+            <div class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Private inventory matching</div>
+          </div>
+        </div>
+
+        <div id="demo" class="relative">
+          <div class="absolute -inset-6 rounded-[2rem] bg-blue-500/20 blur-3xl"></div>
+          <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 shadow-glow backdrop-blur-xl">
+            <div class="border-b border-white/10 bg-slate-900/80 px-6 py-4">
+              <div class="flex items-center gap-2">
+                <span class="h-3 w-3 rounded-full bg-red-400"></span>
+                <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+                <span class="h-3 w-3 rounded-full bg-green-400"></span>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="rounded-3xl border border-white/10 bg-slate-950/80 p-5">
+                <p class="text-sm text-slate-400">Buyer requirement</p>
+                <p class="mt-3 text-lg font-semibold leading-7 text-white">
+                  “Looking for a 3 bedroom apartment in Dubai Marina under AED 3M, sea view preferred, good for investment.”
+                </p>
+              </div>
+
+              <div class="mt-5 space-y-4">
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-4">
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-bold text-white">Marina View Residence</p>
+                      <p class="mt-1 text-sm text-slate-400">Sea view • AED 2.85M • 3 bed</p>
+                    </div>
+                    <span class="rounded-full bg-emerald-400/10 px-3 py-1 text-sm font-bold text-emerald-300">96%</span>
+                  </div>
+                </div>
+
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-4">
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-bold text-white">Harbour Heights</p>
+                      <p class="mt-1 text-sm text-slate-400">Near metro • AED 2.7M • Investor-friendly</p>
+                    </div>
+                    <span class="rounded-full bg-emerald-400/10 px-3 py-1 text-sm font-bold text-emerald-300">89%</span>
+                  </div>
+                </div>
+
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-4">
+                  <div class="flex items-center justify-between gap-4">
+                    <div>
+                      <p class="font-bold text-white">Bluewater Tower</p>
+                      <p class="mt-1 text-sm text-slate-400">Premium amenities • Slightly above budget</p>
+                    </div>
+                    <span class="rounded-full bg-blue-400/10 px-3 py-1 text-sm font-bold text-blue-300">82%</span>
+                  </div>
+                </div>
+              </div>
+
+              <button class="mt-6 w-full rounded-2xl bg-blue-500 px-5 py-4 text-sm font-bold text-white hover:bg-blue-400 transition">
+                Generate shortlist link
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-white/[0.03]">
+      <div class="mx-auto max-w-7xl px-6 py-10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-3xl font-black">30 sec</p>
+          <p class="mt-1 text-sm text-slate-400">to create a shortlist</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black">Global</p>
+          <p class="mt-1 text-sm text-slate-400">currencies and units</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black">Private</p>
+          <p class="mt-1 text-sm text-slate-400">inventory matching</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black">Live</p>
+          <p class="mt-1 text-sm text-slate-400">buyer activity tracking</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="mx-auto max-w-7xl px-6 py-24">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-blue-300">How it works</p>
+        <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight">From buyer message to shortlist link in minutes</h2>
+      </div>
+
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+          <div class="h-12 w-12 rounded-2xl bg-blue-500 flex items-center justify-center text-lg font-black">1</div>
+          <h3 class="mt-6 text-2xl font-bold">Add your inventory</h3>
+          <p class="mt-3 leading-7 text-slate-400">Upload listings, photos, amenities, public descriptions, and private internal broker notes.</p>
+        </div>
+        <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+          <div class="h-12 w-12 rounded-2xl bg-blue-500 flex items-center justify-center text-lg font-black">2</div>
+          <h3 class="mt-6 text-2xl font-bold">Paste buyer requirement</h3>
+          <p class="mt-3 leading-7 text-slate-400">AI scans your active listings and ranks the strongest matches with clear reasons.</p>
+        </div>
+        <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+          <div class="h-12 w-12 rounded-2xl bg-blue-500 flex items-center justify-center text-lg font-black">3</div>
+          <h3 class="mt-6 text-2xl font-bold">Send one clean link</h3>
+          <p class="mt-3 leading-7 text-slate-400">Share a buyer-facing shortlist with property cards, comparison table, and contact buttons.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="bg-white/[0.03] py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="max-w-3xl">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-blue-300">Features</p>
+          <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight">Everything agents need to sell from their own inventory</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-400">Not another bloated CRM. PropMatch AI focuses on the moment that matters: matching a real buyer to the right properties and sending a professional shortlist.</p>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <div class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl">🔎</div>
+            <h3 class="mt-6 text-xl font-bold">AI property matching</h3>
+            <p class="mt-3 leading-7 text-slate-400">Paste a buyer or renter requirement and instantly find the best listings from your own inventory.</p>
+          </div>
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <div class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl">🔗</div>
+            <h3 class="mt-6 text-xl font-bold">Shareable shortlist links</h3>
+            <p class="mt-3 leading-7 text-slate-400">Generate a clean buyer-facing page with selected properties, comparison table, images, and CTAs.</p>
+          </div>
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <div class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl">🏢</div>
+            <h3 class="mt-6 text-xl font-bold">Smart inventory management</h3>
+            <p class="mt-3 leading-7 text-slate-400">Add properties, images, tags, amenities, internal notes, and private broker insights in one place.</p>
+          </div>
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <div class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl">📊</div>
+            <h3 class="mt-6 text-xl font-bold">Buyer activity tracking</h3>
+            <p class="mt-3 leading-7 text-slate-400">See who opened the link, which properties they viewed, and whether they clicked WhatsApp, call, or email.</p>
+          </div>
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <div class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl">🖼️</div>
+            <h3 class="mt-6 text-xl font-bold">Optimized property images</h3>
+            <p class="mt-3 leading-7 text-slate-400">Upload tagged images like Kitchen, Bedroom, View, or Floor Plan. Images are compressed for fast global loading.</p>
+          </div>
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <div class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl">🌍</div>
+            <h3 class="mt-6 text-xl font-bold">Built for global agents</h3>
+            <p class="mt-3 leading-7 text-slate-400">Supports multiple currencies, sqft/sqm, sale/rent/lease listings, and international property formats.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 py-24">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-blue-300">Built for sales</p>
+          <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight">Stop sending messy screenshots and random listings</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-400">Give buyers a polished shortlist with the right properties, clear comparison, and direct actions to book a visit, call, email, or message you.</p>
+          <div class="mt-8 space-y-4">
+            <div class="flex gap-3 text-slate-300"><span class="text-emerald-400">✓</span> Use private notes for better matching without exposing them publicly</div>
+            <div class="flex gap-3 text-slate-300"><span class="text-emerald-400">✓</span> Track buyer interest before your follow-up call</div>
+            <div class="flex gap-3 text-slate-300"><span class="text-emerald-400">✓</span> Archive extra listings instead of deleting data after downgrades</div>
+          </div>
+        </div>
+
+        <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8">
+          <div class="rounded-[1.5rem] bg-slate-900 p-6">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+              <div>
+                <p class="text-sm text-slate-400">Shortlist activity</p>
+                <p class="mt-1 text-2xl font-black">Buyer opened link</p>
+              </div>
+              <div class="h-12 w-12 rounded-2xl bg-emerald-400/10 flex items-center justify-center text-2xl">💬</div>
+            </div>
+            <div class="mt-6 space-y-4">
+              <div class="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3">
+                <span class="text-slate-300">Marina View Residence</span>
+                <span class="font-bold">Viewed 4 times</span>
+              </div>
+              <div class="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3">
+                <span class="text-slate-300">Harbour Heights</span>
+                <span class="font-bold">Interested clicked</span>
+              </div>
+              <div class="flex items-center justify-between rounded-2xl bg-white/5 px-4 py-3">
+                <span class="text-slate-300">WhatsApp CTA</span>
+                <span class="font-bold">Clicked 1 time</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="bg-white/[0.03] py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-blue-300">Pricing</p>
+          <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight">Start free, upgrade when your inventory grows</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-400">Plan limits apply to active properties. Your data is never deleted automatically if you downgrade.</p>
+        </div>
+
+        <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <h3 class="text-2xl font-bold">Free</h3>
+            <div class="mt-4"><span class="text-4xl font-black">$0</span><span class="text-slate-400">/mo</span></div>
+            <p class="mt-4 min-h-12 text-sm leading-6 text-slate-400">For trying PropMatch AI with a small inventory.</p>
+            <a href="/signup" class="mt-6 inline-flex w-full justify-center rounded-2xl bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:bg-slate-200 transition">Start free</a>
+            <ul class="mt-6 space-y-3 text-sm text-slate-300">
+              <li>✓ 10 active properties</li>
+              <li>✓ 20 AI matches/month</li>
+              <li>✓ 10 shortlist links/month</li>
+              <li>✓ 3 images per property</li>
+              <li>✓ PropMatch branding</li>
+            </ul>
+          </div>
+
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <h3 class="text-2xl font-bold">Starter</h3>
+            <div class="mt-4"><span class="text-4xl font-black">$19</span><span class="text-slate-400">/mo</span></div>
+            <p class="mt-4 min-h-12 text-sm leading-6 text-slate-400">For solo agents who send regular shortlists.</p>
+            <a href="/signup" class="mt-6 inline-flex w-full justify-center rounded-2xl bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:bg-slate-200 transition">Upgrade to Starter</a>
+            <ul class="mt-6 space-y-3 text-sm text-slate-300">
+              <li>✓ 100 active properties</li>
+              <li>✓ 200 AI matches/month</li>
+              <li>✓ 100 shortlist links/month</li>
+              <li>✓ 10 images per property</li>
+              <li>✓ 30-day link expiry</li>
+            </ul>
+          </div>
+
+          <div class="relative rounded-[2rem] border border-blue-400 bg-blue-500/10 p-7 shadow-glow">
+            <div class="mb-4 inline-flex rounded-full bg-blue-400 px-3 py-1 text-xs font-black uppercase tracking-wide text-slate-950">Most popular</div>
+            <h3 class="text-2xl font-bold">Pro</h3>
+            <div class="mt-4"><span class="text-4xl font-black">$49</span><span class="text-slate-400">/mo</span></div>
+            <p class="mt-4 min-h-12 text-sm leading-6 text-slate-400">For active agents and brokers closing more deals.</p>
+            <a href="/signup" class="mt-6 inline-flex w-full justify-center rounded-2xl bg-blue-500 px-5 py-3 text-sm font-bold text-white hover:bg-blue-400 transition">Choose Pro</a>
+            <ul class="mt-6 space-y-3 text-sm text-slate-300">
+              <li>✓ 500 active properties</li>
+              <li>✓ 1,000 AI matches/month</li>
+              <li>✓ 500 shortlist links/month</li>
+              <li>✓ 25 images per property</li>
+              <li>✓ Remove PropMatch branding</li>
+            </ul>
+          </div>
+
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <h3 class="text-2xl font-bold">Agency</h3>
+            <div class="mt-4"><span class="text-4xl font-black">$149</span><span class="text-slate-400">/mo</span></div>
+            <p class="mt-4 min-h-12 text-sm leading-6 text-slate-400">For small teams and agencies with shared inventory.</p>
+            <a href="/signup" class="mt-6 inline-flex w-full justify-center rounded-2xl bg-white px-5 py-3 text-sm font-bold text-slate-950 hover:bg-slate-200 transition">Choose Agency</a>
+            <ul class="mt-6 space-y-3 text-sm text-slate-300">
+              <li>✓ 2,000 active properties</li>
+              <li>✓ 5,000 AI matches/month</li>
+              <li>✓ 2,000 shortlist links/month</li>
+              <li>✓ 50 images per property</li>
+              <li>✓ Team-ready limits</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 py-24">
+      <div class="rounded-[2rem] border border-white/10 bg-gradient-to-br from-blue-500/20 to-cyan-400/10 p-8 sm:p-14">
+        <div class="grid lg:grid-cols-[1.5fr_1fr] gap-8 items-center">
+          <div>
+            <div class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200">🔒 Private by design</div>
+            <h2 class="text-4xl sm:text-5xl font-black tracking-tight">Your private inventory stays private</h2>
+            <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-300">Use internal notes to improve matching while keeping buyer-facing pages clean and safe. Buyers only see public listing details and approved AI summaries.</p>
+          </div>
+          <div class="space-y-4">
+            <div class="rounded-2xl bg-slate-950/50 p-4 text-slate-200">✓ Internal notes never shown publicly</div>
+            <div class="rounded-2xl bg-slate-950/50 p-4 text-slate-200">✓ Global listing fields and currencies</div>
+            <div class="rounded-2xl bg-slate-950/50 p-4 text-slate-200">✓ Admin analytics and usage monitoring</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="bg-white/[0.03] py-24">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="text-center">
+          <p class="text-sm font-bold uppercase tracking-[0.2em] text-blue-300">FAQ</p>
+          <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight">Questions agents ask before switching</h2>
+        </div>
+        <div class="mt-12 space-y-4">
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <h3 class="text-lg font-bold">Is this a CRM?</h3>
+            <p class="mt-3 leading-7 text-slate-400">No. PropMatch AI is focused on property matching and shortlist sharing. It helps agents turn buyer requirements into curated property links quickly.</p>
+          </div>
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <h3 class="text-lg font-bold">Can I use my own private inventory?</h3>
+            <p class="mt-3 leading-7 text-slate-400">Yes. The app is designed for your own listings, off-market inventory, builder stock, resale options, and internal broker notes.</p>
+          </div>
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <h3 class="text-lg font-bold">Will internal notes be visible to buyers?</h3>
+            <p class="mt-3 leading-7 text-slate-400">No. Internal notes can help matching, but they are never shown on public buyer shortlist pages.</p>
+          </div>
+          <div class="rounded-[2rem] border border-white/10 bg-slate-950/70 p-7">
+            <h3 class="text-lg font-bold">What happens if I downgrade?</h3>
+            <p class="mt-3 leading-7 text-slate-400">Your data is not deleted. Plan limits apply to active properties. Extra listings can be archived and restored later when you upgrade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-5xl px-6 py-24 text-center">
+      <h2 class="text-4xl sm:text-6xl font-black tracking-tight">Turn every buyer requirement into a professional shortlist</h2>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-400">Start with a few listings, paste a real buyer query, and send a polished property link in minutes.</p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+        <a href="/signup" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-bold text-slate-950 hover:bg-slate-200 transition">Start free <span class="ml-2">→</span></a>
+        <a href="mailto:hello@propmatch.ai" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-4 text-sm font-bold text-white hover:bg-white/10 transition">Book a demo</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 px-6 py-8">
+    <div class="mx-auto max-w-7xl flex flex-col md:flex-row justify-between gap-4 text-sm text-slate-400">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-white text-slate-950 flex items-center justify-center font-black">P</div>
+        <span>© 2026 PropMatch AI. All rights reserved.</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition">Privacy</a>
+        <a href="#" class="hover:text-white transition">Terms</a>
+        <a href="#" class="hover:text-white transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
